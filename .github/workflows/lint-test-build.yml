@@ -1,5 +1,9 @@
 name: lint-build-test
-on: [push,workflow_dispatch]
+on:
+    pull_request:
+        types:
+            - opened
+    workflow_dispatch:
 jobs:
     lint_the_project:
         runs-on: ubuntu-latest
