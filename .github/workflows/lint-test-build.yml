@@ -13,6 +13,11 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
+            - name: cache dependancies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Adding Dependancies
               run: npm ci
             - name: Run Lint
@@ -23,6 +28,11 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
+            - name: cache dependancies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Adding Dependancies
               run: npm ci
             - name: Run Test
@@ -33,6 +43,11 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
+            - name: cache dependancies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Adding Dependancies
               run: npm ci
             - name: Run Build
